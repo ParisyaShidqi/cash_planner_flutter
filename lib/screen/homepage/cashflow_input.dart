@@ -34,42 +34,42 @@ class CashflowInput extends StatelessWidget {
           height: 10,
         ),
         TextField(
-              onTap: isDate == true
-                  ? () {
-                      showDatePicker(
-                              context: context,
-                              firstDate: DateTime(1990, 1),
-                              lastDate: DateTime(2100))
-                          .then((value) {
-                        textEditingController.text = DateFormat("dd/MMM/yyyy")
-                            .format(value ?? DateTime(0));
-                        homeState.dateTime = value.toString();
-                      });
-                    }
-                  : () {},
-              keyboardType: isCurrency == true ? TextInputType.number : null,
-              cursorColor: HexColor("#027AFA"),
-              inputFormatters: isCurrency == true
-                  ? [
-                      CurrencyTextInputFormatter.currency(
-                          locale: "id", decimalDigits: 0, name: "Rp ")
-                    ]
-                  : null,
-              style: cashPlannerTextstyles.smallBold
-                  .copyWith(color: HexColor("#027AFA")),
-              controller: textEditingController,
-              decoration: InputDecoration(
-                  isDense: true,
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(color: HexColor("#027AFA"))),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(color: HexColor("#027AFA"))),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(color: HexColor("#027AFA")))),
-            )
+          onTap: isDate == true
+              ? () {
+                  showDatePicker(
+                          context: context,
+                          firstDate: DateTime(1990, 1),
+                          lastDate: DateTime.now())
+                      .then((value) {
+                    textEditingController.text =
+                        DateFormat("dd/MMM/yyyy").format(value ?? DateTime(0));
+                    homeState.dateTime = value.toString();
+                  });
+                }
+              : () {},
+          keyboardType: isCurrency == true ? TextInputType.number : null,
+          cursorColor: HexColor("#027AFA"),
+          inputFormatters: isCurrency == true
+              ? [
+                  CurrencyTextInputFormatter.currency(
+                      locale: "id", decimalDigits: 0, name: "Rp ")
+                ]
+              : null,
+          style: cashPlannerTextstyles.smallBold
+              .copyWith(color: HexColor("#027AFA")),
+          controller: textEditingController,
+          decoration: InputDecoration(
+              isDense: true,
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color: HexColor("#027AFA"))),
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color: HexColor("#027AFA"))),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color: HexColor("#027AFA")))),
+        )
       ],
     );
   }

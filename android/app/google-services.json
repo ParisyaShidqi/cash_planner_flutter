@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1036001299428",
+    "project_id": "cash-planner-62c59",
+    "storage_bucket": "cash-planner-62c59.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036001299428:android:b32076df167246914c15f1",
+        "android_client_info": {
+          "package_name": "com.example.cash_planner_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM_RvnziccmuAQva9RBMSt3_VMFKH_bAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

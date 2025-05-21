@@ -2,11 +2,32 @@ import 'package:cash_planner_flutter/core/database/database_handler.dart';
 import 'package:cash_planner_flutter/core/database/insert_init_cash_value.dart';
 import 'package:cash_planner_flutter/core/database/show_init_cash_value.dart';
 import 'package:cash_planner_flutter/core/model/init_cash_value_model.dart';
+import 'package:cash_planner_flutter/core/utils/firebase_cloud_msg.dart';
 import 'package:cash_planner_flutter/screen/loading-screen/loading_screen.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+@pragma('vm:entry-point')
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  // If you're going to use other Firebase services in the background, such as Firestore,
+  // make sure you call `initializeApp` before using other Firebase services.
+  await Firebase.initializeApp();
+
+  print("Handling a background message: ${message.notification?.body ?? ""}");
+}
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  FirebaseCloudMsg().fcmPermission();
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  FirebaseCloudMsg().foregroundMessaging();
+  
   runApp(const MyApp());
 }
 
@@ -30,7 +51,7 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   void initState() {
- //   dbRun();
+    //   dbRun();
     super.initState();
   }
 

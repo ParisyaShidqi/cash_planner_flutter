@@ -42,8 +42,22 @@ dependencies:
   currency_text_input_formatter: ^2.2.3
   sqflite: ^2.3.3+1
   intl: ^0.19.0
-  shared_preferences: ^2.2.3
+  shared_preferences: any
   cron: ^0.6.1
+  firebase_messaging: ^15.1.0
+  firebase_core: ^3.4.0
+  http: ^1.2.2
+  signature: ^5.5.0
+  path_provider: ^2.1.4
+  path: ^1.8.3
+  permission_handler: ^10.4.0
+  flutter_pdfview: ^1.4.0
+  syncfusion_flutter_pdfviewer: ^24.2.9
+  syncfusion_flutter_pdf: ^24.2.9
+
+  
+
+
 
 dev_dependencies:
   flutter_test:

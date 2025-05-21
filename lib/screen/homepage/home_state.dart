@@ -22,7 +22,7 @@ class HomeState {
   List<TimelyCashflowModel> showTimelyCashflow = [];
   RxList<HistoryModel> historyModel = <HistoryModel>[].obs;
 
-  RxDouble? targetSaving = 0.0.obs;
+  RxDouble targetSaving = 0.0.obs;
   RxDouble remainBalanceValue = 0.0.obs;
   RxDouble remainShopBalanceValue = 0.0.obs;
 
@@ -54,11 +54,13 @@ class HomeState {
 
   showInitialData({List<InitCashValueModel>? mockShowInit}) async {
     showInit = await showInitialCashValue();
+    targetSaving.value = showInit[0].targetSaving ?? 0;
+    print(showInit[0].targetSaving);
     // showInit = mockShowInit ?? [InitCashValueModel(
     //           initialCash: 25000000, targetSaving: 50000, time: "Monthly")];
-    targetSaving?.value = showInit[0].targetSaving ?? 0;
+    // targetSaving?.value = showInit[0].targetSaving ?? 0;
 
-    return targetSaving?.value ?? 0;
+   // return targetSaving?.value ?? 0;
   }
 
   showCashflowData() async {
@@ -197,6 +199,8 @@ class HomeState {
             id: element.id,
             reason: element.reason,
             type: "Baru"));
+        
+        print("baru: ${element.reason}");
       }
     }
 

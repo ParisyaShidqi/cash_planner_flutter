@@ -9,7 +9,7 @@ Future<List<InitCashValueModel>> showInitialCashValue() async {
   final db =
       await openDatabase(path, version: 1, onCreate: (db, version) async {
     db.execute(
-        'CREATE TABLE init_cash_value( initial_cash DOUBLE, target_saving DOUBLE, time TEXT,)');
+        'CREATE TABLE init_cash_value( initial_cash DOUBLE, target_saving DOUBLE, time TEXT)');
     db.execute(
         'CREATE TABLE cashflow (id INTEGER PRIMARY KEY,cashflow REAL,reason TEXT,  datetime TEXT)');
     db.execute(

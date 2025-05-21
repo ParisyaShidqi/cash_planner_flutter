@@ -15,6 +15,9 @@ gotoInitOrHomepage() async {
     () async {
       bool isInitCash =
           await sprefsCP.sprefsGetBool(key: "isInitCash") ?? false;
+
+      print("isinitcash: ${isInitCash}");
+      
       if (isInitCash) {
         Get.to(() => const HomePage());
       } else {

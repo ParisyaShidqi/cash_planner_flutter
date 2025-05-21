@@ -1,6 +1,4 @@
-import 'package:cash_planner_flutter/core/database/database_handler.dart';
 import 'package:cash_planner_flutter/core/database/insert_init_cash_value.dart';
-import 'package:cash_planner_flutter/core/database/show_init_cash_value.dart';
 import 'package:cash_planner_flutter/core/model/init_cash_value_model.dart';
 import 'package:cash_planner_flutter/core/utils/sprefs.dart';
 import 'package:cash_planner_flutter/screen/homepage/homepage.dart';
@@ -33,6 +31,7 @@ class InitialDataState extends GetxController {
   }
 
   submitInitData() async {
+    print("targetSavingController.text: ${targetSavingController.text}");
     await insertInitCashValue(InitCashValueModel(
             initialCash: double.parse(initCashController.text
                 .replaceAll("Rp ", "")

@@ -6,7 +6,6 @@ import 'package:cash_planner_flutter/screen/homepage/history_card.dart';
 import 'package:cash_planner_flutter/screen/homepage/home_state.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:intl/intl.dart';
 
@@ -89,8 +88,11 @@ class HomePage extends StatelessWidget {
                         .copyWith(color: HexColor("#027AFA")),
                   ),
                   InkWell(
-                    onTap: () {
-                      Get.dialog(const CashflowDialog());
+                    onTap: () async {
+                      await showDialog(
+                          context: context,
+                          builder: (context) => const CashflowDialog());
+
                     },
                     child: Icon(
                       Icons.add,
